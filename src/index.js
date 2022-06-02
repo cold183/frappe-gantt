@@ -105,7 +105,9 @@ export default class Gantt {
 
             // cache index
             task._index = i;
-
+            if (typeof task.row_id === 'number') {
+                task._index = task.row_id;
+            }
             // invalid dates
             if (!task.start && !task.end) {
                 const today = date_utils.today();
@@ -319,12 +321,17 @@ export default class Gantt {
         });
 
         $.attr(this.$svg, {
-            height: grid_height + this.options.padding + 100,
+            height: grid_height + this.options.padding,
             width: '100%',
         });
     }
 
     make_grid_rows() {
+        let counter_rows = 0;
+        const distinctRows = [...new Set(this.tasks.map(x => x.row_id))];
+        for (let row of distinctRows){
+            counter_rows = counter_rows + 1;
+        }
         const rows_layer = createSVG('g', { append_to: this.layers.grid });
         const lines_layer = createSVG('g', { append_to: this.layers.grid });
 
@@ -333,7 +340,7 @@ export default class Gantt {
 
         let row_y = this.options.header_height + this.options.padding / 2;
 
-        for (let task of this.tasks) {
+        for (let row of distinctRows) {
             createSVG('rect', {
                 x: 0,
                 y: row_y,
