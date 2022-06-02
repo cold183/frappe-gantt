@@ -1,6 +1,6 @@
 {
   "name": "@toyokoh/frappe-gantt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An updated version of frappe-gantt with multiple tasks in one row",
   "main": "src/index.js",
   "scripts": {
