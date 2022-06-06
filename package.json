@@ -1,6 +1,6 @@
 {
     "name": "@toyokoh/frappe-gantt",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "An updated version of frappe-gantt with multiple tasks in one row, solved padding issue",
     "main": "src/index.js",
     "scripts": {
