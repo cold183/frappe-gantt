@@ -1462,8 +1462,8 @@ var Gantt = (function () {
 
                     let y = this.options.header_height + this.options.padding / 2;
 
-                    let isToday = date.toString() === date_utils.today();
-                    let isWeekend = (date.getDay() === 0 || date.getDay() === 6);
+                    let isToday = date.toString() == date_utils.today();
+                    let isWeekend = (date.getDay() == 0 || date.getDay() == 6);
                     let className;
 
                     if (isToday) {
